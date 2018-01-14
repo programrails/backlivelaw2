@@ -1,0 +1,39 @@
+<!-- <p>
+  <strong>Выбрано клиентом:</strong>
+  <%#= @doc_response.chosen %>
+</p> -->
+
+<p>
+  <strong>Содержимое:</strong>
+  <%= @doc_response.text %>
+</p>
+
+<p>
+  <strong>Дата создания:</strong>
+  <%= @doc_response.created_at %>
+</p>
+
+<p>
+  <strong>Дата ознакомления:</strong>
+  <%= @doc_response.check_date %>
+</p>
+
+<p>
+  <strong>Дата жалобы:</strong>
+  <%= @doc_response.complaint_date %>
+</p>
+
+<p>
+  <strong>Создатель:</strong>
+  <%= @doc_response.try(:user).try(:email) %>
+</p>
+
+<p>
+  <strong>Заказ документа:</strong>
+  <%= @doc_response.try(:doc_request).try(:title) %>
+</p>
+
+<%= render 'layouts/uploaded_files', param: @doc_response %>
+
+<%= link_to 'Редактировать', edit_admin_doc_response_path(@doc_response) %> |
+<%= link_to 'Назад', admin_doc_responses_path %>

@@ -1,0 +1,6 @@
+<h1>Редактирование комментария</h1>
+
+<%= render 'form', comment: @comment %>
+
+<%= link_to 'Показать', [:admin, @comment] %> |
+<%= link_to 'Назад', helper_by_name2 "admin_#{@commentable.class.to_s.underscore.pluralize}_path" %>

@@ -1,0 +1,39 @@
+<h3>Админка</h3>
+
+<div id="admin_nav"> 
+  <div class="table-responsive">
+    <table class="admin_nav">
+      <tbody>
+        <tr>
+          <td><%= link_to 'Вопросы (с комментариями)', admin_questions_path %></td>
+          <!-- <td><%#= link_to 'Комментарии', admin_comments_path %></td> -->
+          <td><%= link_to 'Категории', admin_categories_path %></td>
+          <td><%= link_to 'Пользователи', admin_users_path %></td>
+          <td><%= link_to 'Регионы', admin_regions_path %></td>
+          <td><%= link_to 'Города', admin_cities_path %></td>
+          <td><%= link_to 'IP-диапазоны', admin_ipranges_path %></td>
+          <td><%= link_to 'Заказы на документ', admin_doc_requests_path %></td>
+          <td><%= link_to 'Выполненные заказы на документы', admin_doc_responses_path %></td>
+          <td><%= link_to 'Правовые статьи', admin_lib_entries_path %></td>
+          <td><%= link_to 'Сообщения', admin_messages_path %></td>
+          <td><%= link_to 'Чат-сообщения', admin_chat_messages_path %></td>
+          <td><%= link_to 'Гостевые чат-токены', admin_guest_chat_tokens_path %></td>
+          <td><%= link_to 'Метро', admin_metro_lines_path %></td>
+          <td><%= link_to 'Настройки', admin_configurables_path %></td>
+          <td><%= link_to 'Цитаты', admin_citations_path %></td>
+          <td><%= link_to 'Отзывы', admin_feedbacks_path %></td>
+          <td><%= link_to 'Чат-шаблоны', admin_chat_templates_path %></td>
+        </tr>
+        <tr>
+          <td><%= link_to 'Платежи', admin_payments_path %></td>
+          <td><%= link_to 'Операции с наличностью', admin_cash_operations_path %></td>
+          <td><%= link_to 'Платежные типы (служебный тип)', admin_payment_types_path %></td>
+          <td><%= link_to 'Подписки на категории', admin_category_subscriptions_path %></td>
+          <td><%= link_to 'Предложения', admin_proposals_path %></td>
+          <td><%= link_to 'Счета', admin_offers_path %></td>
+          <td><%= link_to 'Чат-сессии', admin_chat_sessions_path %></td>
+        </tr>  
+      </tbody>
+    </table>
+  </div>
+</div>

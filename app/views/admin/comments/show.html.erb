@@ -1,0 +1,28 @@
+<p>
+  <strong>Заголовок:</strong>
+  <%= @comment.title %>
+</p>
+
+<p>
+  <strong>Содержимое комментария:</strong>
+  <%= @comment.text %>
+</p>
+
+<p>
+  <strong>Родитель class:</strong>
+  <%= @comment.commentable_type %>
+</p>
+
+<p>
+  <strong>Родитель id:</strong>
+  <%= @comment.commentable.try(:id) %>
+</p>
+
+<p>
+  <strong>Пользователь:</strong>
+  <%= @comment.user ? @comment.user.email : "Не указано" %>
+</p>
+
+<%= link_to 'Редактировать', edit_admin_comment_path(@comment) %> |
+<%= link_to 'Назад', (helper_by_name2 "admin_#{@commentable.class.to_s.underscore.pluralize}_path") %>
+<%#= console %>

@@ -1,0 +1,50 @@
+<%= form_for([:admin, comment]) do |f| %>
+  <% if comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" style="background-color:#f0f0f0;display:inline-block;">
+    <span>Родитель:</span><br>
+    <span>Id: <%= @commentable.id %></span><br>    
+    <span>Класс: <%= @commentable.class %></span><br>
+    <span>Заголовок: <%= @commentable.try(:title) %></span>
+  </div> Родитель комментария - нередактируемое по смыслу поле. Но, если надо, могу сделать редактируемым (хотя геморно).
+
+<!--     <div class="field">
+    <%#= f.label "Вопрос" %><br />
+    <%#= select_tag :question_id, options_from_collection_for_select(Question.order(:title), :id, :title, @commentable.id), {:include_blank => "Ничего не выбрано"} %>
+  </div>   -->
+
+  <%= hidden_field_tag :commentable_type, @commentable.class.to_s %>  
+
+  <%= hidden_field_tag :commentable_id, @commentable.id %>
+
+  <div class="field">
+    <%= f.label "Заголовок" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Содержимое комментария" %>
+    <%= f.text_area :text, :cols => 40, :rows => 10 %>
+  </div>  
+
+  <div class="field">
+    <%= f.label "Пользователь" %><br />
+    <%= f.collection_select :user_id, User.roled([:client, :lawyer, :jurist]).order(:email), :id, :email, {:include_blank => "Ничего не выбрано"},
+  # http://guides.rubyonrails.org/form_helpers.html#select-boxes-for-dealing-with-models
+    prompt: 'Выберите клиента' %>          
+  </div>
+
+  <div class="actions">
+    <%= f.submit submit_russian_text "Комментарий" %>
+  </div>
+<% end %>

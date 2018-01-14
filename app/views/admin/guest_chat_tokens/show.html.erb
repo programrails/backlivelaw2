@@ -1,0 +1,17 @@
+<p>
+  <strong>Id:</strong>
+  <%= @guest_chat_token.id %>
+</p>
+
+<p>
+  <strong>Чат-логин:</strong>
+  <%= @guest_chat_token.guest_chat_login %>
+</p>
+
+<p>
+  <strong>Чат-пароль:</strong>
+  <%= @guest_chat_token.guest_chat_password %>
+</p>
+
+<%= link_to 'Редактировать', edit_admin_guest_chat_token_path(@guest_chat_token) %> |
+<%= link_to 'Назад', admin_guest_chat_tokens_path %>

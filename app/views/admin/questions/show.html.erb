@@ -1,0 +1,29 @@
+<p>
+  <strong>Заголовок:</strong>
+  <%= @question.title %>
+</p>
+
+<p>
+  <strong>Содержимое вопроса:</strong>
+  <%= @question.text %>
+</p>
+
+<p>
+  <strong>Пользователь:</strong>
+  <%= @question.user ? @question.user.email : "Не указано" %>
+</p>
+
+<p>
+  <strong>Категория:</strong>
+  <%= @question.categories.size > 0 ? @question.categories.first.name : "Не указано" %>
+</p>
+
+<p>
+  <strong>Платный:</strong>
+  <%= @question.charged %>
+</p>
+
+<%= render 'layouts/uploaded_files', param: @question %>
+
+<%= link_to 'Редактировать', edit_admin_question_path(@question) %> |
+<%= link_to 'Назад', admin_questions_path %>

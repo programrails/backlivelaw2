@@ -1,0 +1,1 @@
+json.array! @category_subscriptions, partial: 'category_subscriptions/category_subscription', as: :category_subscription

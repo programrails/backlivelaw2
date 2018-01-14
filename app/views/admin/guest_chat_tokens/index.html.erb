@@ -1,0 +1,29 @@
+<h1>Гостевые чат-токены</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Гостевой логин</th>
+      <th>Гостевой пароль</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @guest_chat_tokens.each do |guest_chat_token| %>
+      <tr>
+        <td><%= guest_chat_token.id %></td>
+        <td><%= guest_chat_token.guest_chat_login %></td>
+        <td><%= guest_chat_token.guest_chat_password %></td>         
+        <td><%= link_to 'Показать', [:admin, guest_chat_token] %></td>
+        <td><%= link_to 'Редактировать', edit_admin_guest_chat_token_path(guest_chat_token) %></td>
+        <td><%= link_to 'Удалить', [:admin, guest_chat_token], method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Новый гостевой чат-токен', new_admin_guest_chat_token_path %>

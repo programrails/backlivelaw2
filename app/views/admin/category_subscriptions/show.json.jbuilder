@@ -1,0 +1,1 @@
+json.partial! "category_subscriptions/category_v", category_subscription: @category_subscription

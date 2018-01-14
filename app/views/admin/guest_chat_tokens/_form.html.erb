@@ -1,0 +1,31 @@
+<%= form_for([:admin, guest_chat_token]) do |f| %>
+  <% if guest_chat_token.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(guest_chat_token.errors.count, "error") %> prohibited this guest_chat_token from being saved:</h2>
+
+      <ul>
+      <% guest_chat_token.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Id: <%= f.object.id %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Гостевой чат-логин" %>
+    <%= f.text_field :guest_chat_login %>
+  </div>  
+
+  <div class="field">
+    <%= f.label "Гостевой чат-пароль" %>
+    <%= f.text_field :guest_chat_password %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit submit_russian_text "Гостевой чат-токен" %>
+  </div>
+<% end %>
